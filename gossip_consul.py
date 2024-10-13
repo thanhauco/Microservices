@@ -1,3 +1,18 @@
+"""
+Explanation
+Register a Service: 
+
+The register_service function registers a service with Consul using the /v1/agent/service/register endpoint.
+Check Service Health: The check_service_health function retrieves the health status of the registered service using the /v1/health/service/{service_name} endpoint.
+Deregister a Service: The deregister_service function simulates a service failure by deregistering it from Consul.
+Main Loop: The script registers the service, checks its health every 5 seconds, and allows you to stop it with a keyboard interrupt (Ctrl+C). When interrupted, it simulates a service failure by deregistering the service.
+
+Performance Considerations
+Speed of Detection: 
+ The speed of detection in Consul using the Gossip Protocol is generally fast, allowing nodes to detect changes in membership or failures within seconds. The exact timing depends on the configuration (e.g., health check intervals) and network conditions.
+Health Checks: Consul's health checks can be configured with different intervals and timeouts, influencing how quickly failures are detected and communicated to other nodes.
+"""
+
 import requests
 import time
 
